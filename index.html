@@ -68,7 +68,7 @@
         </div>
 
         <div class="project-grid">
-          <article class="project-card card-blue">
+          <article class="project-card card-blue" data-project="lumio" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Lumio 프로젝트 상세 정보 보기">
             <div class="card-topline"><span>01 / Product design</span><span>2024</span></div>
             <div class="project-art art-dashboard">
               <div class="mini-window">
@@ -78,43 +78,53 @@
               </div>
             </div>
             <div class="card-content">
-              <h3>Flowly</h3>
-              <p>복잡한 업무를 한눈에 관리하는 팀 협업 플랫폼</p>
-              <a href="#contact" class="card-link" aria-label="Flowly 프로젝트 문의">View case study <span>↗</span></a>
+              <h3>Lumio</h3>
+              <p>복잡한 업무 데이터를 쉽게 읽는 스마트 대시보드</p>
+              <span class="card-link">View case study <span aria-hidden="true">↗</span></span>
             </div>
           </article>
 
-          <article class="project-card card-lime">
+          <article class="project-card card-lime" data-project="ondo-studio" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Ondo Studio 프로젝트 상세 정보 보기">
             <div class="card-topline"><span>02 / Brand experience</span><span>2023</span></div>
             <div class="project-art art-bottle">
               <div class="bottle-cap"></div>
-              <div class="bottle"><span>mori<br /><small>daily ritual</small></span></div>
+              <div class="bottle"><span>ondo<br /><small>studio goods</small></span></div>
               <div class="bottle-shadow"></div>
             </div>
             <div class="card-content">
-              <h3>Mori</h3>
-              <p>매일의 루틴을 위한 비건 바디케어 브랜드</p>
-              <a href="#contact" class="card-link" aria-label="Mori 프로젝트 문의">View case study <span>↗</span></a>
-            </div>
-          </article>
-
-          <article class="project-card card-coral">
-            <div class="card-topline"><span>03 / UX strategy</span><span>2023</span></div>
-            <div class="project-art art-mobile">
-              <div class="phone">
-                <div class="phone-speaker"></div>
-                <div class="phone-screen"><span class="screen-title"></span><span class="screen-line"></span><span class="screen-line short"></span><div class="screen-circles"><i></i><i></i><i></i></div></div>
-              </div>
-              <div class="floating-star">✦</div>
-            </div>
-            <div class="card-content">
-              <h3>Oneday</h3>
-              <p>작은 성취를 쌓아가는 마이크로 러닝 앱</p>
-              <a href="#contact" class="card-link" aria-label="Oneday 프로젝트 문의">View case study <span>↗</span></a>
+              <h3>Ondo Studio</h3>
+              <p>따뜻한 일상을 제안하는 라이프스타일 브랜드</p>
+              <span class="card-link">View case study <span aria-hidden="true">↗</span></span>
             </div>
           </article>
         </div>
       </section>
+
+      <dialog class="project-modal" id="project-modal" aria-labelledby="modal-title">
+        <div class="modal-content">
+          <div class="modal-heading">
+            <p class="eyebrow">Project details</p>
+            <button class="modal-close" type="button" aria-label="프로젝트 상세 정보 닫기" autofocus>닫기 <span aria-hidden="true">×</span></button>
+          </div>
+          <h2 id="modal-title"></h2>
+          <p class="modal-description" data-project-description></p>
+          <dl class="modal-details">
+            <div>
+              <dt>담당 역할</dt>
+              <dd data-project-role></dd>
+            </div>
+            <div>
+              <dt>사용 기술</dt>
+              <dd data-project-technologies></dd>
+            </div>
+            <div>
+              <dt>주요 성과</dt>
+              <dd data-project-outcomes></dd>
+            </div>
+          </dl>
+          <p class="example-notice">※ 프로젝트 상세 정보는 실제 정보가 아닌 기능 확인용 예시입니다.</p>
+        </div>
+      </dialog>
 
       <section class="contact section-shell" id="contact">
         <div class="contact-copy">
