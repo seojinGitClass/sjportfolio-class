@@ -132,10 +132,13 @@
           <h2>함께 더 나은<br /><em>내일을 만들어요.</em></h2>
           <p>새로운 아이디어, 리디자인, 혹은 가벼운 커피챗까지<br />편하게 이야기 나눠주세요.</p>
         </div>
-        <form class="contact-form" id="contact-form">
-          <label>이름 <input type="text" name="name" placeholder="어떻게 불러드릴까요?" required /></label>
-          <label>이메일 <input type="email" name="email" placeholder="hello@example.com" required /></label>
-          <label>프로젝트 이야기 <textarea name="message" rows="3" placeholder="만들고 싶은 것을 알려주세요." required></textarea></label>
+        <form class="contact-form" id="contact-form" novalidate>
+          <label for="contact-name">이름 (Name)</label>
+          <input id="contact-name" type="text" name="name" placeholder="어떻게 불러드릴까요?" autocomplete="name" required />
+          <label for="contact-email">이메일 (Email)</label>
+          <input id="contact-email" type="email" name="email" placeholder="hello@example.com" autocomplete="email" required />
+          <label for="contact-message">메시지 (Message)</label>
+          <textarea id="contact-message" name="message" rows="3" placeholder="만들고 싶은 것을 알려주세요." required></textarea>
           <button type="submit">메시지 보내기 <span aria-hidden="true">↗</span></button>
           <p class="form-message" role="status" aria-live="polite"></p>
         </form>

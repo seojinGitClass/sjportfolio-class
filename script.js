@@ -4,9 +4,35 @@ contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const message = contactForm.querySelector(".form-message");
-  const name = contactForm.elements.name.value.trim();
-  message.textContent = `${name}님, 메시지를 확인했습니다. 곧 답변드릴게요!`;
-  contactForm.reset();
+  const name = contactForm.elements.name;
+  const email = contactForm.elements.email;
+  const contactMessage = contactForm.elements.message;
+  const fields = [name, email, contactMessage];
+  const emptyField = fields.find((field) => !field.value.trim());
+
+  message.classList.remove("is-error", "is-success");
+
+  if (emptyField) {
+    const fieldMessages = {
+      name: "이름을 입력해 주세요.",
+      email: "이메일 주소를 입력해 주세요.",
+      message: "메시지를 입력해 주세요."
+    };
+    message.textContent = fieldMessages[emptyField.name];
+    message.classList.add("is-error");
+    emptyField.focus();
+    return;
+  }
+
+  if (email.validity.typeMismatch) {
+    message.textContent = "올바른 이메일 주소를 입력해 주세요. (예: hello@example.com)";
+    message.classList.add("is-error");
+    email.focus();
+    return;
+  }
+
+  message.textContent = "입력이 확인되었습니다. 실습용 폼이므로 메시지는 실제로 전송되지 않습니다.";
+  message.classList.add("is-success");
 });
 
 const projectDetails = {
