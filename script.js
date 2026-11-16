@@ -1,3 +1,39 @@
+const themeToggle = document.querySelector(".theme-toggle");
+const validThemes = ["light", "dark"];
+let savedTheme = "light";
+
+try {
+  const storedTheme = localStorage.getItem("portfolio-theme");
+  if (validThemes.includes(storedTheme)) {
+    savedTheme = storedTheme;
+  }
+} catch (error) {
+  console.error("저장된 테마를 불러오지 못했습니다.", error);
+}
+
+function applyTheme(theme, persist = false) {
+  document.documentElement.dataset.theme = theme;
+  themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+  const nextThemeLabel = theme === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환";
+  themeToggle.setAttribute("aria-label", nextThemeLabel);
+  themeToggle.title = nextThemeLabel;
+  themeToggle.querySelector("span").textContent = theme === "dark" ? "☀" : "☾";
+
+  if (persist) {
+    try {
+      localStorage.setItem("portfolio-theme", theme);
+    } catch (error) {
+      console.error("테마 설정을 저장하지 못했습니다.", error);
+    }
+  }
+}
+
+applyTheme(savedTheme);
+themeToggle.addEventListener("click", () => {
+  const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme, true);
+});
+
 const contactForm = document.querySelector("#contact-form");
 
 contactForm.addEventListener("submit", (event) => {
